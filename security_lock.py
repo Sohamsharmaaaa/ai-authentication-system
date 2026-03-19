@@ -61,10 +61,10 @@ dataset_base = get_path("dataset")
 known_faces = []
 
 if not os.path.exists(dataset_base) or not os.listdir(dataset_base):
-    print("❌ No dataset found. Run dataset_creator.py first.")
+    print(" No dataset found. Run dataset_creator.py first.")
     exit()
 
-print("⏳ Loading dataset...")
+print(" Loading dataset...")
 
 for user in os.listdir(dataset_base):
 
@@ -87,7 +87,7 @@ for user in os.listdir(dataset_base):
         except:
             continue
 
-print(f"✅ Loaded {len(known_faces)} face encodings")
+print(f" Loaded {len(known_faces)} face encodings")
 
 # -------------------------------
 # Webcam
@@ -96,7 +96,7 @@ print(f"✅ Loaded {len(known_faces)} face encodings")
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
-    print("❌ Camera error")
+    print(" Camera error")
     exit()
 
 # -------------------------------
@@ -189,7 +189,7 @@ def scan_face():
         if not ret:
             continue
 
-        # 🔥 SPEED OPTIMIZATION (resize)
+        #  SPEED OPTIMIZATION (resize)
         small_frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
         rgb = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
 

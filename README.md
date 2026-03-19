@@ -55,9 +55,10 @@ ai-authentication-system/
 
 ```bash
 git clone https://github.com/Sohamsharmaaaa/ai-authentication-system.git
+```
+```bash
 cd ai-authentication-system
 ```
-
 ### Step 2: Install required dependencies
 
 ```bash
