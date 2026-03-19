@@ -8,7 +8,7 @@ import os
 user_name = input("Enter your name: ").strip().lower()
 
 if not user_name:
-    print("❌ Name cannot be empty")
+    print("Name cannot be empty")
     exit()
 
 # -------------------------------
@@ -18,7 +18,7 @@ if not user_name:
 dataset_path = os.path.join("dataset", user_name)
 os.makedirs(dataset_path, exist_ok=True)
 
-print(f"📁 Dataset will be saved in: {dataset_path}")
+print(f"Dataset will be saved in: {dataset_path}")
 
 # -------------------------------
 # Start Camera
@@ -27,11 +27,11 @@ print(f"📁 Dataset will be saved in: {dataset_path}")
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
-    print("❌ Camera not accessible")
+    print("Camera not accessible")
     exit()
 
-print("📸 Press 's' to capture image")
-print("❌ Press 'q' to quit")
+print(" Press 's' to capture image")
+print(" Press 'q' to quit")
 
 count = 0
 
@@ -51,7 +51,7 @@ while True:
     if key == ord('s'):
         filename = os.path.join(dataset_path, f"{count}.jpg")
         cv2.imwrite(filename, frame)
-        print(f"✅ Image saved: {filename}")
+        print(f" Image saved: {filename}")
         count += 1
 
     # Press 'q' to quit
@@ -65,4 +65,4 @@ while True:
 cap.release()
 cv2.destroyAllWindows()
 
-print(f"\n🎉 Dataset created with {count} images!")
+print(f"\n Dataset created with {count} images!")
