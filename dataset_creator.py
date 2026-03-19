@@ -1,5 +1,6 @@
 import cv2
 import os
+import time
 
 # -------------------------------
 # Get User Name
@@ -30,32 +31,38 @@ if not cap.isOpened():
     print("❌ Camera not accessible")
     exit()
 
-print("📸 Press 's' to capture image")
-print("❌ Press 'q' to quit")
+print("📸 Capturing images automatically...")
 
 count = 0
+max_images = 30   # 🔥 you can increase
 
-while True:
+# -------------------------------
+# Capture Loop
+# -------------------------------
+
+while count < max_images:
 
     ret, frame = cap.read()
 
     if not ret:
         continue
 
-    # Show camera
+    # Save image
+    filename = os.path.join(dataset_path, f"{count}.jpg")
+    cv2.imwrite(filename, frame)
+
+    print(f"✅ Captured: {filename}")
+
+    count += 1
+
+    # Show camera (optional)
     cv2.imshow("Dataset Creator", frame)
 
-    key = cv2.waitKey(1)
+    # Small delay (important)
+    time.sleep(0.3)
 
-    # Press 's' to save image
-    if key == ord('s'):
-        filename = os.path.join(dataset_path, f"{count}.jpg")
-        cv2.imwrite(filename, frame)
-        print(f"✅ Image saved: {filename}")
-        count += 1
-
-    # Press 'q' to quit
-    elif key == ord('q'):
+    # Exit if window closed (optional safety)
+    if cv2.waitKey(1) == 27:
         break
 
 # -------------------------------
