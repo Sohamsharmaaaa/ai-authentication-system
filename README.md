@@ -55,17 +55,42 @@ ai-authentication-system/
 
 ```bash
 git clone https://github.com/Sohamsharmaaaa/ai-authentication-system.git
-```
-```bash
 cd ai-authentication-system
 ```
-### Step 2: Install required dependencies
+
+---
+
+### Step 2: Install CMake (Required for face_recognition)
+
+Download CMake from the official website:
+
+[https://cmake.org/download/](https://cmake.org/download/)
+
+👉 Download **Windows x64 Installer**
+
+After installation:
+
+* Make sure to check **"Add CMake to system PATH"**
+* Restart your terminal after installation
+
+---
+
+### Step 3: Install required dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 3: Create your face dataset
+If PyAudio fails to install:
+
+```bash
+pip install pipwin
+pipwin install pyaudio
+```
+
+---
+
+### Step 4: Create your face dataset
 
 Run the dataset creator script:
 
@@ -74,7 +99,8 @@ python dataset_creator.py
 ```
 
 Enter your name when prompted.
-Press 'S' to capture images and 'Q' to finish.
+
+⚠️ Images will be captured automatically.
 
 Your dataset will be saved in:
 
@@ -84,7 +110,9 @@ dataset/your_name/
 
 For better accuracy, capture 15–20 images with different angles and lighting conditions.
 
-### Step 4: Run the security system
+---
+
+### Step 5: Run the security system
 
 ```bash
 python security_lock.py
